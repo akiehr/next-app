@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import ThemeProvider from "../components/ThemeProvider";
 import "./globals.css";
-import { ChakraProvider, extendTheme } from "@chakra-ui/react";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "...:3....",
@@ -20,8 +17,8 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
-      <body className={inter.className}>
-        <ChakraProvider>{children}</ChakraProvider>
+      <body>
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );
