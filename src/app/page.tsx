@@ -1,19 +1,17 @@
-import { Box, Heading, Text } from "@chakra-ui/react";
+import BitcoinPrice from "@/components/BitcoinPrice";
+import { Box } from "@chakra-ui/react";
 import Image from "next/image";
 
 export default function Home() {
   return (
     <>
+      <Box className="absolute top-4 left-4">
+        <BitcoinPrice />
+      </Box>
       <div className="flex items-center justify-center min-h-screen bg-emerald-50">
         <Box textAlign="center" py="20">
-          <Heading as="h1" size="2xl" mb="4">
-            En busca del pastelito perfecto{" "}
-          </Heading>
-          <Text fontSize="xl" color="gray.600">
-            proximamente...{" "}
-          </Text>
           <Box display="flex" justifyContent="center">
-            <Image src="/images/snupy.png" height={300} width={300} alt="" />
+            <Image src="/images/front-page.jpeg" height={500} width={500} alt="" />
           </Box>
         </Box>
       </div>
