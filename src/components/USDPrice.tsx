@@ -6,16 +6,16 @@ import Image from "next/image";
 import { ArrowTrendingUpIcon } from "@heroicons/react/24/outline";
 import { ArrowTrendingDownIcon } from "@heroicons/react/24/outline";
 
-const BitcoinPrice = () => {
+const USDPrice = () => {
   const [price, setPrice] = useState<number | null>(null);
   const [yesterdayPrice, setYesterdayPrice] = useState<number | null>(null);
 
   useEffect(() => {
     const fetchPrices = async () => {
       try {
-        const currentPriceResponse = await axios.get("https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT");
+        const currentPriceResponse = await axios.get("https://api.binance.com/api/v3/ticker/price?symbol=USDTARS");
         setPrice(parseFloat(currentPriceResponse.data.price));
-        const historicalPriceResponse = await axios.get("https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=1d&limit=2");
+        const historicalPriceResponse = await axios.get("https://api.binance.com/api/v3/klines?symbol=USDTARS&interval=1d&limit=2");
         const yesterdayClose = parseFloat(historicalPriceResponse.data[0][4]);
         setYesterdayPrice(yesterdayClose);
       } catch (error) {
@@ -36,10 +36,10 @@ const BitcoinPrice = () => {
 
   return (
     <Flex alignItems="center" p={4} borderRadius="md" boxShadow="md">
-      <Image src="/images/Bitcoin-Logo.png" height={64} width={64} alt=""/>
+      <Image src="/images/dollar-logo.png" height={40} width={40} alt="" className="mx-3" />
       {price ? (
         <Text fontSize="2xl" fontWeight="bold" ml={2} color={color}>
-          {`USD ${Math.trunc(price)}`}
+          {`ARS ${Math.trunc(price)}`}
         </Text>
       ) : (
         <Spinner />
@@ -53,4 +53,4 @@ const BitcoinPrice = () => {
   );
 };
 
-export default BitcoinPrice;
+export default USDPrice;
