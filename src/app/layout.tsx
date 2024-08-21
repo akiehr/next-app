@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import ThemeProvider from "../components/ThemeProvider";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
   title: "...:3....",
@@ -18,7 +19,9 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          {children} <Analytics />
+        </ThemeProvider>
       </body>
     </html>
   );
