@@ -1,6 +1,5 @@
-import BitcoinPrice from "@/components/BitcoinPrice";
 import CryptoPrice from "@/components/CryptoPrice";
-import SolanaPrice from "@/components/SolanaPrice";
+import SariAge from "@/components/SariAge";
 import USDPrice from "@/components/USDPrice";
 import { Box } from "@chakra-ui/react";
 import Image from "next/image";
@@ -16,6 +15,9 @@ export default function Home() {
           <CryptoPrice currency="ETH" />
 
           <USDPrice />
+        </Box>
+        <Box textAlign="center" py="4">
+          <SariAge label="Sara" />
         </Box>
         <Box display="flex" justifyContent="center" p="10">
           <Image src="/images/front-page.jpeg" height={500} width={500} alt="" />
